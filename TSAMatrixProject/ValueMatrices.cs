@@ -10,7 +10,7 @@ namespace TSAMatrixProject.ValueMatrices {
     #region INTEGERS
 
 
-    public class IntegerMatrix : Matrix<int> {
+    public partial class IntegerMatrix : Matrix<int> {
 
 
         public IntegerMatrix(int[,] rep, MatrixPredicate predicate) : base(rep, predicate) {
@@ -118,7 +118,8 @@ namespace TSAMatrixProject.ValueMatrices {
     #endregion
 
     #region DOUBLES
-    public class DoubleMatrix : Matrix<double> {
+    public partial class DoubleMatrix : Matrix<double> {
+
         public DoubleMatrix(int row, int col) : base(row, col) {
         }
 
@@ -225,7 +226,7 @@ namespace TSAMatrixProject.ValueMatrices {
     #endregion
 
     #region BOOLEANS
-    public class BoolMatrix : Matrix<bool> {
+    public partial class BoolMatrix : Matrix<bool> {
         public BoolMatrix(int row, int col) : base(row, col) {
         }
 
@@ -329,7 +330,7 @@ namespace TSAMatrixProject.ValueMatrices {
     #endregion
 
     #region CHARS
-    public class CharMatrix : Matrix<char> {
+    public partial class CharMatrix : Matrix<char> {
         public CharMatrix(int row, int col) : base(row, col) {
         }
 

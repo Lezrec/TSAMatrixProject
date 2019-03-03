@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TSAMatrixProject.Exceptions;
 
 namespace TSAMatrixProject
 {
@@ -177,6 +178,17 @@ namespace TSAMatrixProject
                 }
             }
             return true;
+        }
+
+        //TODO: determine the reference value properties of this
+        public Matrix<T> GetTranspose() {
+            T[,] vals = new T[col, row]; //row and col swap
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    vals[j, i] = mRep[i, j];
+                }
+            }
+            return Generate(vals);
         }
 
     }
