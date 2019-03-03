@@ -23,11 +23,17 @@ namespace TSAMatrixProject.Exceptions {
         }
     }
 
+    //TODO: Flesh these out
+
     public class LinearDimensionMismatchException : MatrixArgumentException {
 
     }
 
     public class MultiplicationDimensionMismatchException : MatrixArgumentException {
+
+    }
+
+    public class MatrixTypeMismatchException : MatrixArgumentException {
 
     }
 }
