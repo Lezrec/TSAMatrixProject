@@ -12,6 +12,10 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
         public static T DotProduct<T>(IVector<T> v, IVector<T> w) {
             return v.DotProduct(w);
         }
+
+        public static IVector<T> CrossProduct<T>(IVector<T> v, IVector<T> w) {
+            return null; //TODO
+        }
     }
 
     public interface IVector<T> {

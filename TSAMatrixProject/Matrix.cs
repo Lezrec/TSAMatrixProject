@@ -191,5 +191,62 @@ namespace TSAMatrixProject
             return Generate(vals);
         }
 
+        public Matrix<T> GenerateClone() {
+            return Generate(mRep);
+        }
+
+        //TODO: Test this.
+        public Matrix<T> RemoveRow(int index) {
+            T[,] map = new T[row - 1, col];
+            
+            for(int i = 0; i < RowSize; i++) {
+                for (int j = 0; j < ColumnSize; j++) {
+                    if (i == index) continue;
+                    else if (i > index) {
+                        map[i-1, j] = mRep[i, j];
+                    }
+                    else {
+                        map[i, j] = mRep[i, j];
+                    }
+                }
+            }
+            return Generate(map);
+                 
+        }
+
+        //TODO: Test this.
+        public Matrix<T> RemoveColumn(int index) {
+            T[,] map = new T[row, col - 1];
+
+            for (int i = 0; i < RowSize; i++) {
+                for (int j = 0; j < ColumnSize; j++) {
+                    if (j == index) continue;
+                    else if (j > index) {
+                        map[i, j-1] = mRep[i, j];
+                    }
+                    else {
+                        map[i, j] = mRep[i, j];
+                    }
+                }
+            }
+            return Generate(map);
+
+        }
+
+        public override string ToString() {
+            String ret = "";
+
+            for(int i = 0; i < row; i++) {
+                ret += "|  ";
+                for (int j = 0; j < col; j++) {
+                    ret += Get(i, j).ToString() + "  ";
+                }
+                ret += "|\n";
+            }
+
+            ret += $"Rows: {row}, Columns: {col}. Type: {this.GetType().ToString()}";
+
+            return ret;
+        }
     }
 }
