@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntegerMatrix.cs" />
+    <Compile Include="ValueInterfaces.cs" />
     <Compile Include="ValueMatrices.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Exceptions.cs" />

@@ -30,7 +30,7 @@ namespace TSAMatrixProject
             return col == matrix.row;
         };
 
-
+        
         private int row, col;
         private T[,] mRep;
 
@@ -65,6 +65,15 @@ namespace TSAMatrixProject
         public bool IsSquare { get { return row == col; } }
         public bool SingleColumn { get { return col == 1; } }
         public bool SingleRow { get { return row == 1; } }
+
+
+
+        //todo add security to this
+        
+        public T this[int row, int col] {
+            get { return mRep[row, col]; }
+            set { mRep[row, col] = value; }
+        }
 
         //these are abstract because these properties depend on the T properties
         public abstract bool IsDiagonal { get; }
