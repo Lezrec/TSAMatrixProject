@@ -25,7 +25,10 @@ namespace TSAMatrixProject
         public static MatrixPredicate IdentityPredicate => (matrix) => {
             return matrix.IsIdentity;
         };
-
+        //This one is not static
+        public MatrixPredicate CanMultiply => (matrix) => {
+            return col == matrix.row;
+        };
 
 
         private int row, col;
@@ -87,23 +90,23 @@ namespace TSAMatrixProject
         public abstract Matrix<T> Generate(T[,] input);
 
 
-        public IEnumerable<T> GetRow(int col) {
+        public IEnumerable<T> GetRow(int row) {
+            if (row < 0 || row >= this.row) {
+                throw new IndexOutOfRangeException($"The specified range was out of bounds. Row Range = 0-{this.row-1}. Input = {row}");
+            }
+
+            for (int i = 0; i < col; i++) {
+                yield return mRep[row, i];
+            }
+        }
+
+        public IEnumerable<T> GetColumn(int col) {
             if (col < 0 || col >= this.col) {
-                throw new IndexOutOfRangeException($"The specified range was out of bounds. Column Range = 0-{this.col-1}. Input = {col}");
+                throw new IndexOutOfRangeException($"The specified range was out of bounds. Column Range = 0-{this.col - 1}. Input = {col}");
             }
 
             for (int i = 0; i < row; i++) {
                 yield return mRep[i, col];
-            }
-        }
-
-        public IEnumerable<T> GetColumn(int row) {
-            if (row < 0 || row >= this.row) {
-                throw new IndexOutOfRangeException($"The specified range was out of bounds. Row Range = 0-{this.row - 1}. Input = {row}");
-            }
-
-            for (int i = 0; i < row; i++) {
-                yield return mRep[row, i];
             }
         }
         //todo test

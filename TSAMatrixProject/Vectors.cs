@@ -18,6 +18,8 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
         }
     }
 
+    //TODO: Make vectors initializable with arrays since they only have a single array
+
     public interface IVector<T> {
         T DotProduct(IVector<T> other);
         T Get(int index);
@@ -32,6 +34,12 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
         public IntegerColumnVector(int[,] rep, MatrixPredicate predicate) : base(rep, SingleColumnPredicate) {
             if (!predicate(this)) {
                 throw new ArgumentException("The given matrix does not meet the requirements of the specified kind of matrix.");
+            }
+        }
+
+        public IntegerColumnVector(int[] rep) : base(rep.Length ,1) {
+            for(int i = 0; i < rep.Length; i++) {
+                Replace(i, 0, rep[i]);
             }
         }
 
@@ -50,7 +58,7 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
         }
 
         public int Get(int index) {
-            return Get(index, 1);
+            return Get(index, 0);
         }
     }
 
@@ -61,6 +69,12 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
         public IntegerRowVector(int[,] rep, MatrixPredicate predicate) : base(rep, SingleRowPredicate) {
             if (!predicate(this)) {
                 throw new ArgumentException("The given matrix does not meet the requirements of the specified kind of matrix.");
+            }
+        }
+
+        public IntegerRowVector(int[] rep) : base(1, rep.Length) {
+            for (int i = 0; i < rep.Length; i++) {
+                Replace(0,i, rep[i]);
             }
         }
 
@@ -79,7 +93,7 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
         }
 
         public int Get(int index) {
-            return Get(1, index);
+            return Get(0, index);
         }
     }
 
@@ -110,7 +124,7 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
         }
 
         public double Get(int index) {
-            return Get(index, 1);
+            return Get(index, 0);
         }
     }
 

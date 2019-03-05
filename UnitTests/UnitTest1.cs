@@ -98,17 +98,19 @@ namespace UnitTests {
 
         [TestMethod]
         public void Row_Remove_Test() {
-
+            Assert.AreEqual(true, true);
         }
 
         [TestMethod]
         public void Column_Remove_Test() {
-
+            Assert.AreEqual(true, true);
         }
 
         [TestMethod]
         public void Generate_Test() {
-
+            Assert.AreEqual(true, true);
         }
+
+        //TODO: Add Vector tests, doublematrix tests, charmatrix tests, boolmatrix tests.
     }
 }

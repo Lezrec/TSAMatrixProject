@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TSAMatrixProject.Exceptions;
+using TSAMatrixProject.ValueMatrices.Vectors;
 
 namespace TSAMatrixProject.ValueMatrices {
     public partial class IntegerMatrix {
@@ -22,6 +24,26 @@ namespace TSAMatrixProject.ValueMatrices {
                 for (int j = 0; j < ColumnSize; j++) {
                     Replace(i, j, Get(i, j) + other.Get(i, j));
                 }
+            }
+        }
+
+        //TODO: Test this. Pretty sure it works?
+        public IntegerMatrix Multiply(IntegerMatrix other) {
+            if (!CanMultiply(other)) throw new MultiplicationDimensionMismatchException(); //todo
+            else {
+                IntegerMatrix ret = new IntegerMatrix(RowSize, other.ColumnSize);
+                for (int i = 0; i < RowSize; i++) {
+                    for (int j = 0; j < other.ColumnSize; j++) {
+                        int[] ro = GetRow(i).ToArray<int>();
+                        int[] co = other.GetColumn(j).ToArray<int>();
+                        IntegerRowVector v = new IntegerRowVector(ro);
+                        IntegerColumnVector w = new IntegerColumnVector(co);
+                        ret.Replace(i, j, VectorMath.DotProduct<int>(v, w));
+                    }
+                }
+                return ret;
+            
+                
             }
         }
 
