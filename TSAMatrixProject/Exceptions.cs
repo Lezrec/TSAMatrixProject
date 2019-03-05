@@ -12,6 +12,7 @@ namespace TSAMatrixProject.Exceptions {
 
     }
 
+    [Serializable]
     public class NullMatrixException : MatrixArgumentException {
 
         private string message;
@@ -27,14 +28,17 @@ namespace TSAMatrixProject.Exceptions {
 
     //TODO: Flesh these out
 
+    [Serializable]
     public class LinearDimensionMismatchException : MatrixArgumentException {
 
     }
 
+    [Serializable]
     public class MultiplicationDimensionMismatchException : MatrixArgumentException {
 
     }
 
+    [Serializable]
     public class MatrixTypeMismatchException : MatrixArgumentException {
 
     }

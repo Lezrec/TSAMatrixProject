@@ -30,8 +30,14 @@ namespace MatrixTester {
             }
             Console.WriteLine(sq1.ToString());
             Console.WriteLine(sq2.ToString());
-            IntegerMatrix prod1 = sq1.Multiply(sq2);
+            SquareIntegerMatrix prod1 = sq1.Multiply(sq2);
             Console.WriteLine(prod1.ToString());
+            IntegerMatrix minor1 = prod1.GetMinor(0);
+            IntegerMatrix minor2 = prod1.GetMinor(1);
+            IntegerMatrix minor3 = prod1.GetMinor(2);
+            Console.WriteLine(minor1);
+            Console.WriteLine(minor2);
+            Console.WriteLine(minor3);
             Console.Read();
         }
 

@@ -9,6 +9,8 @@ using TSAMatrixProject.ValueMatrices.Vectors;
 namespace TSAMatrixProject.ValueMatrices {
     public partial class IntegerMatrix {
 
+        //TODO: Be able to cast a nxn as a squareintegermatrix or a 1xn as a row vector etc.
+
         public static IntegerMatrix Sum(IntegerMatrix obj1, IntegerMatrix obj2) {
             if (!SizeParity(obj1, obj2)) throw new ArgumentException("The matrices were not in the same dimension.");
             else {
@@ -47,6 +49,20 @@ namespace TSAMatrixProject.ValueMatrices {
             }
         }
 
+        //TODO: classify multiplications to have the products be as explicit as possible.
+        //im sure theres a better way to do this lol
+        public SquareIntegerMatrix Multiply(SquareIntegerMatrix other) {
+            IntegerMatrix product = Multiply(other as IntegerMatrix);
+            SquareIntegerMatrix ret = new SquareIntegerMatrix(other.RowSize);
+            for(int i = 0; i < RowSize; i++) {
+                for (int j = 0; j < RowSize; j++) {
+                    ret.Replace(i, j, product.Get(i, j));
+                }
+            }
+            return ret;
+            
+        }
+
     }
 
     public partial class SquareIntegerMatrix {
@@ -55,8 +71,8 @@ namespace TSAMatrixProject.ValueMatrices {
         //eg col = 0 means the first minor, 0 row and 0 col excluded for a 3x3 gives a 2x2 with the bottom right minor
         //index starts at 0 btw
         //TODO: Test this.
-        public SquareIntegerMatrix GetMinor(int col) {
-            return (SquareIntegerMatrix)RemoveRow(0).RemoveColumn(col);
+        public IntegerMatrix GetMinor(int col) {
+            return (IntegerMatrix)RemoveRow(0).RemoveColumn(col);
         }
     }
 }

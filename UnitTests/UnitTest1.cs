@@ -111,6 +111,20 @@ namespace UnitTests {
             Assert.AreEqual(true, true);
         }
 
+        [TestMethod]
+        public void Matrix_Multiplication_Test() {
+
+        }
+
+        [TestMethod]
+        public void Matrix_Addition_Mismatch_Test() {
+
+        }
+
+        public void Matrix_Multiplication_Mismatch_Test() {
+
+        }
+
         //TODO: Add Vector tests, doublematrix tests, charmatrix tests, boolmatrix tests.
     }
 }

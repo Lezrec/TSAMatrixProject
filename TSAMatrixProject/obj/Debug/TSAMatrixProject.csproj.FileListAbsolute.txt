@@ -9,5 +9,4 @@ C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\bin\Debug\TSAMa
 C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.csproj.CoreCompileInputs.cache
 C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.dll
 C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.pdb
-C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\bin\Debug\TSAMatrixProject.dll.CodeAnalysisLog.xml
-C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\bin\Debug\TSAMatrixProject.dll.lastcodeanalysissucceeded
+C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.csprojResolveAssemblyReference.cache
