@@ -187,8 +187,8 @@ namespace TSAMatrixProject.ValueMatrices {
     }
 
     #region OUTSIDE IMPLEMENTATION
-    public partial class SquareDoubleMatrix : IntegerMatrix {
-        internal SquareDoubleMatrix(int[,] rep, MatrixPredicate predicate) : base(rep, SquarePredicate) {
+    public partial class SquareDoubleMatrix : DoubleMatrix {
+        internal SquareDoubleMatrix(double[,] rep, MatrixPredicate predicate) : base(rep, SquarePredicate) {
             if (!predicate(this)) {
                 throw new ArgumentException("The given matrix does not meet the requirements of the specified kind of matrix.");
             }
@@ -199,7 +199,7 @@ namespace TSAMatrixProject.ValueMatrices {
     }
 
     public partial class DiagonalDoubleMatrix : SquareDoubleMatrix {
-        internal DiagonalDoubleMatrix(int[,] rep, MatrixPredicate predicate) : base(rep, DiagonalPredicate) {
+        internal DiagonalDoubleMatrix(double[,] rep, MatrixPredicate predicate) : base(rep, DiagonalPredicate) {
             if (!predicate(this)) {
                 throw new ArgumentException("The given matrix does not meet the requirements of the specified kind of matrix.");
             }
@@ -210,7 +210,7 @@ namespace TSAMatrixProject.ValueMatrices {
     }
 
     public partial class IdentityDoubleMatrix : DiagonalDoubleMatrix {
-        internal IdentityDoubleMatrix(int[,] rep, MatrixPredicate predicate) : base(rep, IdentityPredicate) {
+        internal IdentityDoubleMatrix(double[,] rep, MatrixPredicate predicate) : base(rep, IdentityPredicate) {
             if (!predicate(this)) {
                 throw new ArgumentException("The given matrix does not meet the requirements of the specified kind of matrix.");
             }

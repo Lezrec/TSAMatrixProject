@@ -40,13 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IntegerMatrix.cs" />
-    <Compile Include="ValueInterfaces.cs" />
-    <Compile Include="ValueMatrices.cs" />
+    <Compile Include="Algebra\AugmentedMatrix.cs" />
+    <Compile Include="Algebra\RationalNumber.cs" />
+    <Compile Include="Algebra\RationalNumberMatrix.cs" />
+    <Compile Include="ValueMatrices\DoubleMatrix.cs" />
+    <Compile Include="ValueMatrices\IntegerMatrix.cs" />
+    <Compile Include="ValueMatrices\ValueInterfaces.cs" />
+    <Compile Include="ValueMatrices\ValueMatrices.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vectors.cs" />
+    <Compile Include="Algebra\VariableMatrices.cs" />
+    <Compile Include="ValueMatrices\Vectors.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

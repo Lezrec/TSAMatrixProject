@@ -110,6 +110,12 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
             }
         }
 
+        public DoubleColumnVector(double[] rep) : base(rep.Length, 1) {
+            for (int i = 0; i < rep.Length; i++) {
+                Replace(i, 0, rep[i]);
+            }
+        }
+
         
 
         public double DotProduct(IVector<double> other) {
@@ -133,6 +139,12 @@ namespace TSAMatrixProject.ValueMatrices.Vectors {
         public int Dimension => ColumnSize;
 
         public DoubleRowVector(int size) : base(1, size) {
+        }
+
+        public DoubleRowVector(double[] rep) : base(1, rep.Length) {
+            for (int i = 0; i < rep.Length; i++) {
+                Replace(0, i, rep[i]);
+            }
         }
 
         public DoubleRowVector(double[,] rep, MatrixPredicate predicate) : base(rep, SingleRowPredicate) {

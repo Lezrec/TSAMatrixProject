@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TSAMatrixProject;
 using TSAMatrixProject.ValueMatrices;
+using TSAMatrixProject.Algebra;
+using TSAMatrixProject.ValueMatrices.Vectors;
 
 namespace MatrixTester {
     public static class Program {
@@ -38,7 +40,19 @@ namespace MatrixTester {
             Console.WriteLine(minor1);
             Console.WriteLine(minor2);
             Console.WriteLine(minor3);
+            TestAlgebra();
             Console.Read();
+        }
+
+        public static void TestAlgebra() {
+            SquareDoubleMatrix sdm = new SquareDoubleMatrix(2);
+            sdm.Replace(0, 0, 2);
+            sdm.Replace(0, 1, 5);
+            sdm.Replace(1, 0, 9);
+            sdm.Replace(1, 1, 4);
+            DoubleColumnVector colv = new DoubleColumnVector(new double[] { 2.5, 4 });
+            AugmentedMatrix aug = new AugmentedMatrix(sdm, colv);
+            Console.WriteLine(aug.ToString());
         }
 
         
