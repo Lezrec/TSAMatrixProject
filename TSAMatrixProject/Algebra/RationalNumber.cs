@@ -6,12 +6,24 @@ using System.Threading.Tasks;
 
 namespace TSAMatrixProject.Algebra {
     //will simplify matrix algebra hopefully
-    public struct RationalNumber {
+    public class RationalNumber {
         int numerator;
         int divisor;
 
+        public static readonly RationalNumber Zero = new RationalNumber(0, 1);
+
+        public static RationalNumber[] CrossMultiply(RationalNumber ob, RationalNumber oth)
+        {
+            RationalNumber[] ret = new RationalNumber[2];
+            ret[0] = new RationalNumber(ob.numerator * oth.divisor, ob.divisor * oth.divisor, false);
+            ret[1] = new RationalNumber(oth.numerator * ob.divisor, oth.divisor * ob.divisor, false);
+            return ret;
+        }
+
         public bool IsZero => numerator == 0;
         public bool IsOne => numerator == 1 && divisor == 1;
+        public int Numerator => numerator;
+        public int Denominator => divisor;
 
         public RationalNumber(int numerator, int divisor) {
             if (divisor == 0) throw new DivideByZeroException();
@@ -20,8 +32,28 @@ namespace TSAMatrixProject.Algebra {
             Reduce();
         }
 
+        public RationalNumber(int numerator, int divisor, bool reduce)
+        {
+            if (divisor == 0) throw new DivideByZeroException();
+            this.numerator = numerator;
+            this.divisor = divisor;
+            if (reduce) Reduce();
+        }
+
+        public RationalNumber(int numerator)
+        {
+            this.numerator = numerator;
+            divisor = 1;
+        }
+
+        public RationalNumber()
+        {
+            numerator = 0;
+            divisor = 1;
+        }
+
         public RationalNumber Negation() {
-            RationalNumber ret = new RationalNumber(-numerator, -divisor);
+            RationalNumber ret = new RationalNumber(-numerator, divisor);
             return ret;
         }
 
@@ -32,28 +64,24 @@ namespace TSAMatrixProject.Algebra {
 
         //TODO: Test these
         public static RationalNumber operator +(RationalNumber a, RationalNumber b) {
+            int aCross = a.numerator * b.divisor;
+            int bCross = b.numerator * a.divisor;
             int lcm = LCM(a.divisor, b.divisor);
-            int mulA = lcm / a.divisor;
-            int mulB = lcm / b.divisor;
-            a.numerator *= mulA;
-            a.divisor *= mulA;
-            RationalNumber ret = new RationalNumber(a.numerator + b.numerator, lcm);
-            ret.Reduce();
-            return ret;
-        }
+            //Console.WriteLine($"+op: {aCross}/{lcm} and {bCross}/{lcm}");
+            return new RationalNumber(aCross + bCross, lcm);
+            //ret.Reduce();
+            
+        } 
 
         public static RationalNumber operator -(RationalNumber a, RationalNumber b) {
-            RationalNumber ret = a + b.Negation();
-            return ret;
+            RationalNumber c = new RationalNumber(b.numerator, b.divisor);
+            RationalNumber neg = c.Negation();
+            return a + neg;
         }
 
         public static RationalNumber operator *(RationalNumber a, RationalNumber b) {
-            a.numerator *= b.divisor;
-            b.numerator *= a.divisor;
-            int nDiv = a.divisor * b.divisor;
-            RationalNumber ret = new RationalNumber(a.numerator + b.numerator, nDiv);
-            ret.Reduce();
-            return ret;
+            return new RationalNumber(a.numerator * b.numerator, a.divisor * b.divisor);
+            
         }
 
         public static RationalNumber operator /(RationalNumber a, RationalNumber b) {
@@ -67,14 +95,17 @@ namespace TSAMatrixProject.Algebra {
                 numerator /= gcf;
                 divisor /= gcf;
             }
+            if (gcf == 0) divisor = 0;
         }
 
-        private static int LCM(int a, int b) {
+        internal static int LCM(int a, int b) {
             return (a * b) / GCF(a, b);
         }
 
-        private static int GCF(int a, int b) {
+        internal static int GCF(int a, int b) {
             // Everything divides 0  
+            if (a < 0) a *= -1;
+            if (b < 0) b *= -1;
             if (a == 0 || b == 0)
                 return 0;
 
@@ -96,6 +127,13 @@ namespace TSAMatrixProject.Algebra {
                 return (this.divisor == other.divisor && this.numerator == other.numerator);
             }
             return false;
+        }
+
+        public override string ToString()
+        {
+            if (IsZero) return "0";
+            if (divisor == 1) return $"{numerator}";
+            return $"{numerator}/{divisor}";
         }
 
     }

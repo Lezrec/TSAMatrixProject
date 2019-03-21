@@ -10,3 +10,9 @@ C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMa
 C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.dll
 C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.pdb
 C:\Users\Noah-PC\Documents\TSA\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.csprojResolveAssemblyReference.cache
+D:\TSA 2019\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.csproj.CoreCompileInputs.cache
+D:\TSA 2019\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.dll
+D:\TSA 2019\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.pdb
+D:\TSA 2019\TSAMatrixProject\TSAMatrixProject\bin\Debug\TSAMatrixProject.dll
+D:\TSA 2019\TSAMatrixProject\TSAMatrixProject\bin\Debug\TSAMatrixProject.pdb
+D:\TSA 2019\TSAMatrixProject\TSAMatrixProject\obj\Debug\TSAMatrixProject.csprojAssemblyReference.cache

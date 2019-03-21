@@ -43,6 +43,7 @@
     <Compile Include="Algebra\AugmentedMatrix.cs" />
     <Compile Include="Algebra\RationalNumber.cs" />
     <Compile Include="Algebra\RationalNumberMatrix.cs" />
+    <Compile Include="Algebra\RationalNumberVectors.cs" />
     <Compile Include="ValueMatrices\DoubleMatrix.cs" />
     <Compile Include="ValueMatrices\IntegerMatrix.cs" />
     <Compile Include="ValueMatrices\ValueInterfaces.cs" />
